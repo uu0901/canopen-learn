@@ -1,0 +1,6 @@
+{
+    "cmake.useCMakePresets": "always",
+    "cmake.configureOnOpen": false,
+    "C_Cpp.default.compilerPath": "/home/c/develop/armnone/arm11/bin/arm-none-eabi-gcc",
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/Debug-local/compile_commands.json"
+}

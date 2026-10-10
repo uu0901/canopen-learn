@@ -1,0 +1,64 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake: Configure Debug",
+            "type": "process",
+            "command": "/usr/bin/cmake",
+            "args": ["--preset", "Debug-local"],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "CMake: Build Debug",
+            "type": "process",
+            "command": "/usr/bin/cmake",
+            "args": [
+                "--build",
+                "--preset",
+                "Debug-local",
+                "--parallel",
+                "4"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": "CMake: Configure Debug",
+            "dependsOrder": "sequence",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "STM32: Download (J-Link)",
+            "type": "process",
+            "command": "/usr/bin/openocd",
+            "args": [
+                "-s",
+                "/usr/share/openocd/scripts",
+                "-f",
+                "${workspaceFolder}/openocd.cfg",
+                "-c",
+                "program {${workspaceFolder}/build/Debug-local/test.elf} verify reset exit"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": "CMake: Build Debug",
+            "dependsOrder": "sequence",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "runOptions": {
+                "instanceLimit": 1
+            }
+        }
+    ]
+}

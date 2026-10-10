@@ -1,0 +1,5 @@
+/home/c/develop/project/study-canopen/can-bak/Drivers/BSP/can_common.c:20:13:Dawn_CANFD_ConfigFilter	48	static
+/home/c/develop/project/study-canopen/can-bak/Drivers/BSP/can_common.c:68:13:Dawn_CANFD_Start	8	static
+/home/c/develop/project/study-canopen/can-bak/Drivers/BSP/can_common.c:101:10:Dawn_CANFD_BytesToDLC	16	static
+/home/c/develop/project/study-canopen/can-bak/Drivers/BSP/can_common.c:129:19:Dawn_CANFD_SendMessage	32	static
+/home/c/develop/project/study-canopen/can-bak/Drivers/BSP/can_common.c:159:6:Dawn_CANFD_Init	8	static
