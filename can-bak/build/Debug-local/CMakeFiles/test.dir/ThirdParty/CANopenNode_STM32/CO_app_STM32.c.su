@@ -1,0 +1,4 @@
+/home/c/develop/project/study-canopen/can-bak/ThirdParty/CANopenNode_STM32/CO_app_STM32.c:76:1:canopen_app_init	24	static
+/home/c/develop/project/study-canopen/can-bak/ThirdParty/CANopenNode_STM32/CO_app_STM32.c:130:1:canopen_app_resetCommunication	72	static
+/home/c/develop/project/study-canopen/can-bak/ThirdParty/CANopenNode_STM32/CO_app_STM32.c:218:1:canopen_app_process	16	static
+/home/c/develop/project/study-canopen/can-bak/ThirdParty/CANopenNode_STM32/CO_app_STM32.c:248:1:canopen_app_interrupt	32	static

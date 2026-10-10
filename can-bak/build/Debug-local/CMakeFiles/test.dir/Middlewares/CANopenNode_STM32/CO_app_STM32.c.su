@@ -1,0 +1,4 @@
+/home/c/develop/project/study-canopen/can-bak/Middlewares/CANopenNode_STM32/CO_app_STM32.c:75:1:canopen_app_init	24	static
+/home/c/develop/project/study-canopen/can-bak/Middlewares/CANopenNode_STM32/CO_app_STM32.c:129:1:canopen_app_resetCommunication	72	static
+/home/c/develop/project/study-canopen/can-bak/Middlewares/CANopenNode_STM32/CO_app_STM32.c:217:1:canopen_app_process	16	static
+/home/c/develop/project/study-canopen/can-bak/Middlewares/CANopenNode_STM32/CO_app_STM32.c:247:1:canopen_app_interrupt	32	static

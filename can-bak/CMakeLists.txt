@@ -37,6 +37,37 @@ add_executable(${CMAKE_PROJECT_NAME})
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 
+# 当前工程内的源码目录
+set(CANOPEN_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/CANopenNode")
+set(CANOPEN_STM32_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/CANopenNode_STM32")
+set(CANOPEN_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/App/CANopen")
+
+# 协议模块源码
+file(GLOB CANOPEN_PROTOCOL_SOURCES CONFIGURE_DEPENDS
+    "${CANOPEN_DIR}/301/*.c"
+    "${CANOPEN_DIR}/303/*.c"
+    "${CANOPEN_DIR}/305/*.c"
+)
+
+target_sources(${CMAKE_PROJECT_NAME} PRIVATE
+    ${CANOPEN_PROTOCOL_SOURCES}
+
+    "${CANOPEN_DIR}/CANopen.c"
+    "${CANOPEN_DIR}/storage/CO_storage.c"
+
+    "${CANOPEN_STM32_DIR}/CO_driver_STM32.c"
+    "${CANOPEN_STM32_DIR}/CO_app_STM32.c"
+    "${CANOPEN_STM32_DIR}/CO_storageBlank.c"
+
+    "${CANOPEN_APP_DIR}/OD.c"
+)
+
+target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
+    "${CANOPEN_DIR}"
+    "${CANOPEN_STM32_DIR}"
+    "${CANOPEN_APP_DIR}"
+)
+
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths

@@ -19,11 +19,13 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "fdcan.h"
+#include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "can_common.h"
+#include "CO_app_STM32.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,6 +47,7 @@
 
 /* USER CODE BEGIN PV */
 volatile uint32_t led_delay_ms = 5000;
+static CANopenNodeSTM32 canopenConfig = {0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -88,8 +91,22 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_FDCAN2_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
-	Dawn_CANFD_Init();
+	// Dawn_CANFD_Init();
+  // HAL_TIM_Base_Start_IT(&htim6);
+  canopenConfig.CANHandle = &hfdcan2;
+  canopenConfig.HWInitFunction = MX_FDCAN2_Init;
+  canopenConfig.timerHandle = &htim6;
+  canopenConfig.desiredNodeID = 1;
+  canopenConfig.baudrate = 1000;  /* 单位：kbit/s */
+
+  int init_result = canopen_app_init(&canopenConfig);
+
+if (init_result != 0)
+{
+    Error_Handler();
+}
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -100,8 +117,10 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     
-    Dawn_CANFD_SendMessage(0x7F0 | 0x01, FDCAN_STANDARD_ID, (uint8_t[]){0x83, 0x01, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}, 8, 0);
-    HAL_Delay(100);
+    // Dawn_CANFD_SendMessage(0x7F0 | 0x01, FDCAN_STANDARD_ID, (uint8_t[]){0x83, 0x01, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}, 8, 0);
+    // HAL_Delay(100);
+
+    canopen_app_process();
   }
   /* USER CODE END 3 */
 }
@@ -122,12 +141,11 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV4;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV2;
   RCC_OscInitStruct.PLL.PLLN = 85;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;

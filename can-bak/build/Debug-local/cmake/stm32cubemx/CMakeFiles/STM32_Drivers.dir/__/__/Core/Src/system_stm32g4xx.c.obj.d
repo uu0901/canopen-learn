@@ -33,4 +33,6 @@ cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c
  /home/c/develop/project/study-canopen/can-bak/cmake/stm32cubemx/../../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h \
  /home/c/develop/project/study-canopen/can-bak/cmake/stm32cubemx/../../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h \
  /home/c/develop/project/study-canopen/can-bak/cmake/stm32cubemx/../../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h \
- /home/c/develop/project/study-canopen/can-bak/cmake/stm32cubemx/../../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h
+ /home/c/develop/project/study-canopen/can-bak/cmake/stm32cubemx/../../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h \
+ /home/c/develop/project/study-canopen/can-bak/cmake/stm32cubemx/../../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h \
+ /home/c/develop/project/study-canopen/can-bak/cmake/stm32cubemx/../../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h

@@ -12,6 +12,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.28.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeSystem.cmake"
+  "CMakeFiles/VerifyGlobs.cmake"
+  "CMakeFiles/cmake.verify_globs"
   "/home/c/develop/project/study-canopen/can-bak/cmake/gcc-arm-none-eabi.cmake"
   "/home/c/develop/project/study-canopen/can-bak/cmake/stm32cubemx/CMakeLists.txt"
   "/usr/share/cmake-3.28/Modules/CMakeASMInformation.cmake"

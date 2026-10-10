@@ -1,0 +1,10 @@
+/home/c/develop/project/study-canopen/can-bak/Middlewares/CANopenNode/301/CO_ODinterface.c:26:1:OD_readOriginal	40	static
+/home/c/develop/project/study-canopen/can-bak/Middlewares/CANopenNode/301/CO_ODinterface.c:69:1:OD_writeOriginal	40	static
+/home/c/develop/project/study-canopen/can-bak/Middlewares/CANopenNode/301/CO_ODinterface.c:125:1:OD_readDisabled	24	static
+/home/c/develop/project/study-canopen/can-bak/Middlewares/CANopenNode/301/CO_ODinterface.c:135:1:OD_writeDisabled	24	static
+/home/c/develop/project/study-canopen/can-bak/Middlewares/CANopenNode/301/CO_ODinterface.c:144:1:OD_find	32	static
+/home/c/develop/project/study-canopen/can-bak/Middlewares/CANopenNode/301/CO_ODinterface.c:181:1:OD_getSub	56	static
+/home/c/develop/project/study-canopen/can-bak/Middlewares/CANopenNode/301/CO_ODinterface.c:276:1:OD_getSDOabCode	16	static
+/home/c/develop/project/study-canopen/can-bak/Middlewares/CANopenNode/301/CO_ODinterface.c:310:1:OD_get_value	80	static
+/home/c/develop/project/study-canopen/can-bak/Middlewares/CANopenNode/301/CO_ODinterface.c:332:1:OD_set_value	80	static
+/home/c/develop/project/study-canopen/can-bak/Middlewares/CANopenNode/301/CO_ODinterface.c:354:1:OD_getPtr	64	static
