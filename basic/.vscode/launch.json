@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "STM32G474 - J-Link (OpenOCD)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/Debug-local/test.elf",
+            "device": "STM32G474RE",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "armToolchainPath": "/home/c/develop/armnone/arm11/bin",
+            "serverpath": "/usr/bin/openocd",
+            "searchDir": [
+                "/usr/share/openocd/scripts"
+            ],
+            "configFiles": [
+                "${workspaceFolder}/openocd.cfg"
+            ],
+            "preLaunchTask": "CMake: Build Debug",
+            "runToEntryPoint": "main"
+        }
+    ]
+}

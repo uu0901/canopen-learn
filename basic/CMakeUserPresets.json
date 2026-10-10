@@ -1,0 +1,21 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "Debug-local",
+            "displayName": "Debug (local GCC + Make)",
+            "inherits": "Debug",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/Debug-local",
+            "environment": {
+                "PATH": "/home/c/develop/armnone/arm11/bin:$penv{PATH}"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Debug-local",
+            "configurePreset": "Debug-local"
+        }
+    ]
+}

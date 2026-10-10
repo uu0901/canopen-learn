@@ -1,0 +1,6 @@
+/home/c/develop/project/test-cmake/test-replay/build/Debug-local/CMakeFiles/test.dir
+/home/c/develop/project/test-cmake/test-replay/build/Debug-local/CMakeFiles/edit_cache.dir
+/home/c/develop/project/test-cmake/test-replay/build/Debug-local/CMakeFiles/rebuild_cache.dir
+/home/c/develop/project/test-cmake/test-replay/build/Debug-local/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir
+/home/c/develop/project/test-cmake/test-replay/build/Debug-local/cmake/stm32cubemx/CMakeFiles/edit_cache.dir
+/home/c/develop/project/test-cmake/test-replay/build/Debug-local/cmake/stm32cubemx/CMakeFiles/rebuild_cache.dir
