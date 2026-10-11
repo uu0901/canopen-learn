@@ -26,6 +26,7 @@
 /* USER CODE BEGIN Includes */
 #include "can_common.h"
 #include "CO_app_STM32.h"
+#include "OD.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -101,6 +102,37 @@ int main(void)
   canopenConfig.desiredNodeID = 1;
   canopenConfig.baudrate = 1000;  /* 单位：kbit/s */
 
+  /* RPDO1：接收 0x201，写入 0x6000:00 */
+  OD_PERSIST_COMM.x1400_RPDOCommunicationParameter.COB_IDUsedByRPDO =
+      0x00000201;
+
+  OD_PERSIST_COMM.x1400_RPDOCommunicationParameter.transmissionType =
+      254;
+
+  OD_PERSIST_COMM.x1600_RPDOMappingParameter.applicationObject1 =
+      0x60000020;
+
+  OD_PERSIST_COMM.x1600_RPDOMappingParameter.numberOfMappedApplicationObjectsInPDO =
+      1;
+
+  /* TPDO1：通过 0x181，每 500 ms 发送 0x6000:00 */
+  OD_PERSIST_COMM.x1800_TPDOCommunicationParameter.COB_IDUsedByTPDO =
+      0x40000181;
+
+  OD_PERSIST_COMM.x1800_TPDOCommunicationParameter.transmissionType =
+      254;
+
+  OD_PERSIST_COMM.x1800_TPDOCommunicationParameter.inhibitTime =
+      0;
+
+  OD_PERSIST_COMM.x1800_TPDOCommunicationParameter.eventTimer =
+      500;
+
+  OD_PERSIST_COMM.x1A00_TPDOMappingParameter.applicationObject1 =
+      0x60000020;
+
+  OD_PERSIST_COMM.x1A00_TPDOMappingParameter.numberOfMappedApplicationObjectsInPDO =
+      1;
   int init_result = canopen_app_init(&canopenConfig);
 
 if (init_result != 0)

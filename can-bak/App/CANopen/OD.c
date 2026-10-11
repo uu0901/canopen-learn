@@ -1114,7 +1114,7 @@ static CO_PROGMEM ODObjs_t ODObjs = {
     },
     .o_6000_velocity = {
         .dataOrig = &OD_RAM.x6000_velocity,
-        .attribute = ODA_SDO_RW | ODA_RPDO | ODA_MB,
+        .attribute = ODA_SDO_RW | ODA_RPDO | ODA_TPDO | ODA_MB,
         .dataLength = 4
     }
 };
