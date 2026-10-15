@@ -59,7 +59,51 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static ODR_t OD_write_ledBlinkPeriodMs(
+    OD_stream_t *stream,
+    const void *buf,
+    OD_size_t count,
+    OD_size_t *countWritten)
+{
+    if (stream == NULL || buf == NULL || countWritten == NULL)
+    {
+        return ODR_DEV_INCOMPAT;
+    }
 
+    *countWritten = 0;
+
+    if (stream->subIndex != 0U)
+    {
+        return ODR_SUB_NOT_EXIST;
+    }
+
+    if (count != sizeof(uint16_t))
+    {
+        return ODR_TYPE_MISMATCH;
+    }
+
+    /* buf 指向本次要写入的对象数据 */
+    uint16_t value = CO_getUint16(buf);
+
+    if (value < 100U)
+    {
+        return ODR_VALUE_LOW;
+    }
+
+    if (value > 5000U)
+    {
+        return ODR_VALUE_HIGH;
+    }
+
+    /* 校验通过，才真正更新对象字典变量 */
+    return OD_writeOriginal(stream, buf, count, countWritten);
+}
+
+static OD_extension_t ledBlinkExtension = {
+    .object = NULL,
+    .read = OD_readOriginal,
+    .write = OD_write_ledBlinkPeriodMs
+};
 /* USER CODE END 0 */
 
 /**
@@ -133,6 +177,11 @@ int main(void)
 
   OD_PERSIST_COMM.x1A00_TPDOMappingParameter.numberOfMappedApplicationObjectsInPDO =
       1;
+  if (OD_extension_init(OD_ENTRY_H2000_ledBlinkPeriodMs,
+                        &ledBlinkExtension) != ODR_OK)
+  {
+      Error_Handler();
+  }
   int init_result = canopen_app_init(&canopenConfig);
 
 if (init_result != 0)

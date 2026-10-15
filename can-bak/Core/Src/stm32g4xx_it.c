@@ -24,6 +24,7 @@
 /* USER CODE BEGIN Includes */
 #include "tim.h"
 #include "CO_app_STM32.h"
+#include "OD.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -249,10 +250,19 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     if (htim->Instance == TIM6)
     {
         canopen_app_interrupt();
-        
+
         static uint16_t count = 0;
 
-        if (++count >= 1000)
+         /* 从对象字典读取 LED 翻转间隔，单位 ms */
+        uint16_t period_ms = OD_RAM.x2000_ledBlinkPeriodMs;
+
+        /* 使用值超出设计范围时，暂时按 1000 ms 工作 */
+        if (period_ms < 100U || period_ms > 5000U)
+        {
+            period_ms = 1000U;
+        }
+
+        if (++count >= period_ms)
         {
             count = 0;
             HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);

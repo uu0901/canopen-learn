@@ -122,8 +122,7 @@ canopen_app_init(CANopenNodeSTM32* _canopenNodeSTM32) {
     }
 #endif
 
-    canopen_app_resetCommunication();
-    // return 0;
+    return canopen_app_resetCommunication();
 }
 
 int

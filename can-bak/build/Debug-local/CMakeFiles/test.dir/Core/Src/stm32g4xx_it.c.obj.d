@@ -87,4 +87,5 @@ CMakeFiles/test.dir/Core/Src/stm32g4xx_it.c.obj: \
  /home/c/develop/project/study-canopen/can-bak/ThirdParty/CANopenNode/301/CO_SDOclient.h \
  /home/c/develop/project/study-canopen/can-bak/ThirdParty/CANopenNode/305/CO_LSSmaster.h \
  /home/c/develop/project/study-canopen/can-bak/ThirdParty/CANopenNode/303/CO_LEDs.h \
- /home/c/develop/project/study-canopen/can-bak/ThirdParty/CANopenNode/extra/CO_trace.h
+ /home/c/develop/project/study-canopen/can-bak/ThirdParty/CANopenNode/extra/CO_trace.h \
+ /home/c/develop/project/study-canopen/can-bak/App/CANopen/OD.h
